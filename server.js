@@ -6,9 +6,9 @@ const ShortUrl = require('./models/shortUrl')
 const bodyParser = require('body-parser')
 const app = express()
 
-mongoose.connect(process.env.MONGODB_URI)
-.then(() => console.log('MongoDB Connected...'))
-.catch(err => console.log(err));
+// dp connection
+const database = require('./config/db');
+database();
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false })) 
